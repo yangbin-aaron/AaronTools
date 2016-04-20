@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AaronDemo</string>
+
+    <string name="check_net_con">检测网络相关Tools</string>
+</resources>
