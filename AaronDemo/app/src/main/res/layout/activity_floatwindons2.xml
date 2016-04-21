@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/check_net_con"
+            android:text="@string/float_windons2"
             android:textColor="@android:color/white"
             android:textSize="16sp"/>
 
@@ -34,25 +34,11 @@
             android:background="@android:color/darker_gray"/>
     </RelativeLayout>
 
-
     <Button
-        android:id="@+id/net_is_con_btn"
+        android:id="@+id/show_float_windons_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="网络是否连接"/>
+        android:text="显示悬浮窗口"/>
 
-    <Button
-        android:id="@+id/net_type_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="网络类型"/>
-
-    <Button
-        android:id="@+id/net_wifi_mobile_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="判断WiFi和移动流量是否已连接"/>
 </LinearLayout>

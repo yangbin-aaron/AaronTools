@@ -2,4 +2,12 @@
     <string name="app_name">AaronDemo</string>
 
     <string name="check_net_con">检测网络相关Tools</string>
+    <string name="check_systemtools">检测系统相关Tools</string>
+    <string name="float_windons1">悬浮窗口1</string>
+    <string name="float_windons2">悬浮窗口2</string>
+    <string name="strBtn">点我吧少年！</string>
+    <string name="strPic">LOGO图片</string>
+    <string name="strTextTop">摸我吧</string>
+    <string name="strTextBottom">我会动哦</string>
+    <string name="escape_string">转义符号</string>
 </resources>

@@ -1,12 +1,14 @@
-package com.aaron.aarondemo;
+package com.aaron.aarondemo.activitys;
 
 import android.app.Activity;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aaron.aarondemo.R;
 import com.aaron.aarontools.tools.NetConnectionTools;
 
 /**
@@ -15,12 +17,19 @@ import com.aaron.aarontools.tools.NetConnectionTools;
 public class CheckNetConActivity extends Activity implements View.OnClickListener {
 
     private CheckNetConActivity activity;
-    private Button net_is_con_btn, net_type_btn,net_wifi_mobile_btn;
+    private Button net_is_con_btn, net_type_btn, net_wifi_mobile_btn;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_checknetcon);
+        TextView back = (TextView) findViewById (R.id.back);
+        back.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick (View v) {
+                finish ();
+            }
+        });
         activity = this;
         initView ();
     }
@@ -56,7 +65,7 @@ public class CheckNetConActivity extends Activity implements View.OnClickListene
                 Toast.makeText (activity, "当前连接的网络Type为：" + str, Toast.LENGTH_SHORT).show ();
                 break;
             case R.id.net_wifi_mobile_btn:
-                boolean netWifiMobile= NetConnectionTools.checkNetworkConnection (activity);
+                boolean netWifiMobile = NetConnectionTools.checkNetworkConnection (activity);
                 Toast.makeText (activity, "WiFi和移动流量连接状态为：" + (netWifiMobile ? "已连接" : "未连接"), Toast.LENGTH_SHORT).show ();
                 break;
         }

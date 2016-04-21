@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@android:color/holo_blue_dark">
-
         <TextView
             android:id="@+id/back"
             android:layout_width="45dp"
@@ -18,12 +17,11 @@
             android:text="&lt;"
             android:textColor="@android:color/white"
             android:textSize="28sp"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/check_net_con"
+            android:text="@string/check_systemtools"
             android:textColor="@android:color/white"
             android:textSize="16sp"/>
 
@@ -33,26 +31,4 @@
             android:layout_alignParentBottom="true"
             android:background="@android:color/darker_gray"/>
     </RelativeLayout>
-
-
-    <Button
-        android:id="@+id/net_is_con_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="网络是否连接"/>
-
-    <Button
-        android:id="@+id/net_type_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="网络类型"/>
-
-    <Button
-        android:id="@+id/net_wifi_mobile_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="判断WiFi和移动流量是否已连接"/>
 </LinearLayout>
