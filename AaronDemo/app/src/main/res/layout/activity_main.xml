@@ -9,7 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,127 +20,142 @@
             <Button
                 android:id="@+id/escape_string_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
                 android:text="@string/escape_string"/>
 
             <Button
                 android:id="@+id/check_nettool_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
                 android:text="@string/check_net_con"/>
 
             <Button
                 android:id="@+id/check_systemtool_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
                 android:text="@string/check_systemtools"/>
 
             <Button
                 android:id="@+id/float_windons1_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
                 android:text="@string/float_windons1"/>
 
             <Button
                 android:id="@+id/float_windons2_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
                 android:text="@string/float_windons2"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/app_name"/>
+                android:layout_height="@dimen/height_50"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:visibility="invisible"/>
 
         </LinearLayout>
     </ScrollView>

@@ -7,6 +7,9 @@ import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
@@ -23,6 +26,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
@@ -56,8 +60,9 @@ public class SystemTools {
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace ();
         }
-        return "";
+        return null;
     }
 
     /**
@@ -229,7 +234,7 @@ public class SystemTools {
         intent.putExtras (bundle);
         PendingIntent pendingIntent = PendingIntent.getBroadcast (mContext, alarmCount, intent, 0);
         AlarmManager alarmManager = (AlarmManager) mContext.getSystemService (Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent);
+        alarmManager.set (AlarmManager.RTC_WAKEUP, time, pendingIntent);
     }
 
     /**
@@ -312,5 +317,60 @@ public class SystemTools {
             finalDate = new Date (date.getTime () - timeOffset);
         }
         return finalDate;
+    }
+
+    /**
+     * 获取所有APP的列表
+     *
+     * @param context
+     * @return
+     */
+    public static List<PackageInfo> getAppList (Context context) {
+        PackageManager pm = context.getPackageManager ();
+        // 获取系统已经安装的应用
+        List<PackageInfo> packages = pm.getInstalledPackages (0);
+
+        /*
+        PackageInfo pi = packages.get (i);
+        pi.applicationInfo.loadLabel (pm).toString ()   －－AppName
+        pi.applicationInfo.loadIcon (pm)                －－AppIcon   Drawable
+        pi.packageName                                  －－包名
+        pi.versionName                                  －－版本名
+        pi.versionCode                                  －－版本号
+        */
+        return packages;
+    }
+
+    /**
+     * 判断是否为系统应用
+     *
+     * @param packageInfo
+     * @return
+     */
+    public static boolean isSystemApp (PackageInfo packageInfo) {
+        if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+            //非系统应用
+            return false;
+        } else {
+            //系统应用　　
+            return true;
+        }
+    }
+
+    /**
+     * 获取非系统APP列表
+     *
+     * @param context
+     * @return
+     */
+    public static List<PackageInfo> getNotSystemAppList (Context context) {
+        List<PackageInfo> infos = new ArrayList<> ();
+        List<PackageInfo> tempInfos = getAppList (context);
+        for (PackageInfo packageInfo : tempInfos) {
+            if (!isSystemApp (packageInfo)) {
+                infos.add (packageInfo);
+            }
+        }
+        return infos;
     }
 }

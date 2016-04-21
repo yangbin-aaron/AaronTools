@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.aaron.aarondemo.R;
 import com.aaron.aarondemo.activitys.floatwindon.FloatWindons1Activity;
 import com.aaron.aarondemo.activitys.floatwindon.FloatWindons2Activity;
+import com.aaron.aarondemo.activitys.systems.CheckSystemToolsActivity;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 

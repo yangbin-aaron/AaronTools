@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".activitys.EscapeActivity"/>
         <activity android:name=".activitys.CheckNetConActivity"/>
-        <activity android:name=".activitys.CheckSystemToolsActivity"/>
+        <activity android:name=".activitys.systems.CheckSystemToolsActivity"/>
+        <activity android:name=".activitys.systems.AppListActivity"/>
         <activity android:name=".activitys.floatwindon.FloatWindons1Activity"/>
         <service android:name=".services.FxService"/>
         <activity android:name=".activitys.floatwindon.FloatWindons2Activity"/>
