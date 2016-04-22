@@ -18,10 +18,12 @@ public class MyActionBarActivity extends Activity implements MyActionBar.OnActio
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_myactionbar);
         MyActionBar bar = (MyActionBar) findViewById (R.id.bar);
+        bar.setBarBackGround (android.R.color.holo_blue_light);
         bar.setBarTitleText (R.string.my_actionbar);
 //        bar.setBarTitleText ("my_actionbar");
         bar.setBarLeftImage (R.drawable.back_btn);
         bar.setBarRightText ("右");
+        bar.setBarRightImage (R.drawable.blue_btn_color);
         bar.setOnActionBarClickListener (this);
     }
 

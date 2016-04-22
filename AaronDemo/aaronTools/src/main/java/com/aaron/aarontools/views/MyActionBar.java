@@ -74,9 +74,9 @@ public class MyActionBar extends RelativeLayout {
 
     private void setAttrs (Context context, TypedArray ta) {
         // 背景颜色
-        int backColor = ta.getColor (R.styleable.MyActionBar_bar_backgroundColor, 0);
-        if (backColor != 0) {
-            mActionBarLayout.setBackgroundColor (backColor);
+        int backRes = ta.getResourceId (R.styleable.MyActionBar_bar_backgroundColor, 0);
+        if (backRes != 0) {
+            mActionBarLayout.setBackgroundResource (backRes);
         }
         // 设置标题
         String title = ta.getString (R.styleable.MyActionBar_title_text);
@@ -104,11 +104,10 @@ public class MyActionBar extends RelativeLayout {
         if (leftColor != 0) {
             mLeftTextView.setTextColor (leftColor);
         }
-        Drawable leftImage = ta.getDrawable (R.styleable.MyActionBar_left_image);
-        if (leftImage != null) {
-            setBarLeftImage (leftImage);
+        int leftRes = ta.getResourceId (R.styleable.MyActionBar_left_image, 0);
+        if (leftRes != 0) {
+            setBarLeftImage (leftRes);
         }
-        // right
         String right = ta.getString (R.styleable.MyActionBar_right_text);
         if (right != null && !right.equals ("")) {
             setBarRightText (right);
@@ -121,9 +120,9 @@ public class MyActionBar extends RelativeLayout {
         if (rightColor != 0) {
             mRightTextView.setTextColor (rightColor);
         }
-        Drawable rightImage = ta.getDrawable (R.styleable.MyActionBar_right_image);
-        if (rightImage != null) {
-            setBarRightImage (rightImage);
+        int rightRes = ta.getResourceId (R.styleable.MyActionBar_right_image, 0);
+        if (rightRes != 0) {
+            setBarRightImage (rightRes);
         }
         ta.recycle ();
     }
