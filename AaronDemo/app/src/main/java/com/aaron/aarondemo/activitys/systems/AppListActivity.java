@@ -5,9 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -73,7 +71,7 @@ public class AppListActivity extends Activity implements AdapterView.OnItemClick
     public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
         final PackageInfo pi = mPackageInfoList.get (position);
         if (SystemTools.isSystemApp (pi)) {
-            Toast.makeText (this,"系统应用",Toast.LENGTH_SHORT).show ();
+            Toast.makeText (this, "系统应用", Toast.LENGTH_SHORT).show ();
             return;
         }
         Dialog dialog = new AlertDialog.Builder (this).setIcon (
@@ -84,18 +82,14 @@ public class AppListActivity extends Activity implements AdapterView.OnItemClick
                     @Override
                     public void onClick (DialogInterface dialog, int which) {
                         // TODO Auto-generated method stub
-                        Uri packageURI = Uri.parse ("package:" + pi.packageName);
-                        Intent intent = new Intent (Intent.ACTION_DELETE);
-                        intent.setData (packageURI);
-                        startActivity (intent);
+                        SystemTools.uninstallApp (AppListActivity.this, pi.packageName);
                     }
                 })
                 .setNeutralButton ("启动", new OnClickListener () {
                     @Override
                     public void onClick (DialogInterface dialog, int which) {
                         // TODO Auto-generated method stub
-                        Intent intent = getPackageManager ().getLaunchIntentForPackage (pi.packageName);//"jp.co.johospace.jorte"就是我们获得要启动应用的包名
-                        startActivity (intent);
+                        SystemTools.startApp (AppListActivity.this, pi.packageName);
                     }
 
                 }).create ();

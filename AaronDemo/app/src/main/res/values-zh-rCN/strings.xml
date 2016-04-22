@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AaronDemo</string>
+
+    <string name="switch_language">切换语言</string>
+</resources>

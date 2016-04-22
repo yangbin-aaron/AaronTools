@@ -30,5 +30,11 @@ public class AaronConstants {
     public static final String YYYY_MM_DD_HH_MM_SS_SSS = "yyyy-MM-dd'T'HH:mm:ss.sss";
     public static final String YYYY_MM_DD_HH_MM_SS_SSSZZZZZ = "yyyy-MM-dd'T'HH:mm:ss.sssZZZZZ"; //包括时区解析
 
+    // -------------------------------Handler相关-------------------------------------
+    public static final int HANDLER_WHAT_MEMORY_CAPACITY = 0x50;// 释放的内存量
 
+    // -------------------------------语言-------------------------------------
+    public static final String LANGUAGE_ENGLISH = "en";// 英语
+    public static final String LANGUAGE_SIMPLIFIED_CHINESE = "zh";// 简体中文
+    public static final String LANGUAGE_TAIWAN_CHINESE = "zh_tw";// 繁体中文（台湾）
 }

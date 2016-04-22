@@ -15,6 +15,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -142,17 +143,17 @@ public class SystemTools {
     }
 
     /**
-     * 清理后台进程与服务
+     * 清理后台进程与服务(释放内存)
      *
-     * @param cxt 应用上下文对象context
+     * @param cxt     应用上下文对象context
+     * @param handler
      * @return 被清理的数量
      */
     @TargetApi(Build.VERSION_CODES.FROYO)
-    public static int clearThreadsAndServices (Context cxt) {
+    public static int clearThreadsAndServices (Context cxt, Handler handler) {
         long i = getDeviceUsableMemory (cxt);
         int count = 0; // 清理掉的进程数
-        ActivityManager am = (ActivityManager) cxt
-                .getSystemService (Context.ACTIVITY_SERVICE);
+        ActivityManager am = (ActivityManager) cxt.getSystemService (Context.ACTIVITY_SERVICE);
         // 获取正在运行的service列表
         List<ActivityManager.RunningServiceInfo> serviceList = am.getRunningServices (100);
         if (serviceList != null)
@@ -178,17 +179,20 @@ public class SystemTools {
                     // pkgList 得到该进程下运行的包名
                     String[] pkgList = process.pkgList;
                     for (String pkgName : pkgList) {
-                        AndyLoger.debug ("======正在杀死包名：" + pkgName);
                         try {
                             am.killBackgroundProcesses (pkgName);
+                            AndyLoger.debug ("======已经杀死包名：" + pkgName);
                             count++;
                         } catch (Exception e) { // 防止意外发生
+                            AndyLoger.debug ("======没有杀死包名：" + pkgName + "   " + e.getMessage ());
                             e.getStackTrace ();
                             continue;
                         }
                     }
                 }
             }
+        int toatl = (int) (getDeviceUsableMemory (cxt) - i);
+        handler.obtainMessage (AaronConstants.HANDLER_WHAT_MEMORY_CAPACITY, toatl, 0).sendToTarget ();
         AndyLoger.debug ("清理了" + (getDeviceUsableMemory (cxt) - i) + "M内存");
         return count;
     }
@@ -199,11 +203,11 @@ public class SystemTools {
         Resources resources = context.getResources ();
         Configuration config = resources.getConfiguration ();
         DisplayMetrics dm = resources.getDisplayMetrics ();
-        if (language.equals ("en")) {
+        if (language.equals (AaronConstants.LANGUAGE_ENGLISH)) {
             config.locale = Locale.ENGLISH;
-        } else if (language.equals ("zh")) {// 简易中文
+        } else if (language.equals (AaronConstants.LANGUAGE_SIMPLIFIED_CHINESE)) {// 简易中文
             config.locale = Locale.SIMPLIFIED_CHINESE;
-        } else if (language.equals ("zh_tw")) {// 繁体中文
+        } else if (language.equals (AaronConstants.LANGUAGE_TAIWAN_CHINESE)) {// 繁体中文
             config.locale = Locale.TAIWAN;
         }
         resources.updateConfiguration (config, dm);
@@ -372,5 +376,30 @@ public class SystemTools {
             }
         }
         return infos;
+    }
+
+    /**
+     * 卸载应用
+     *
+     * @param context
+     * @param packageName
+     */
+    public static void uninstallApp (Context context, String packageName) {
+        Uri packageURI = Uri.parse ("package:" + packageName);
+        Intent intent = new Intent (Intent.ACTION_DELETE);
+        intent.setData (packageURI);
+        context.startActivity (intent);
+    }
+
+    /**
+     * 启动应用
+     *
+     * @param context
+     * @param packageName
+     */
+    public static void startApp (Context context, String packageName) {
+        //"jp.co.johospace.jorte"就是我们获得要启动应用的包名
+        Intent intent = context.getPackageManager ().getLaunchIntentForPackage (packageName);
+        context.startActivity (intent);
     }
 }

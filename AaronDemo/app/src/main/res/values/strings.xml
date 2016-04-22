@@ -10,4 +10,5 @@
     <string name="strTextTop">摸我吧</string>
     <string name="strTextBottom">我会动哦</string>
     <string name="escape_string">转义符号</string>
+    <string name="switch_language">Switch Language</string>
 </resources>
