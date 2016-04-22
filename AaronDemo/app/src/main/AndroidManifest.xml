@@ -27,6 +27,7 @@
         <activity android:name=".activitys.floatwindon.FloatWindons1Activity"/>
         <service android:name=".services.FxService"/>
         <activity android:name=".activitys.floatwindon.FloatWindons2Activity"/>
+        <activity android:name=".activitys.MyActionBarActivity"/>
     </application>
 
 </manifest>

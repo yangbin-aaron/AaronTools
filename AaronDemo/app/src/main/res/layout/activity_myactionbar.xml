@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.aaron.aarontools.views.MyActionBar
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="全文字的ActionBar(设置属性)"/>
+
+    <com.aaron.aarontools.views.MyActionBar
+        xmlns:topBar="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        topBar:bar_backgroundColor="@android:color/holo_orange_light"
+        topBar:left_text="左"
+        topBar:right_text="右"
+        topBar:title_text="@string/escape_string"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="右边图片的ActionBar(设置属性)"/>
+
+    <com.aaron.aarontools.views.MyActionBar
+        xmlns:topBar="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        topBar:bar_backgroundColor="@android:color/darker_gray"
+        topBar:left_text="左"
+        topBar:left_textColor="@android:color/holo_blue_bright"
+        topBar:left_textSize="14sp"
+        topBar:right_image="@drawable/message_btn_down"
+        topBar:title_text="@string/escape_string"
+        topBar:title_textColor="@android:color/holo_blue_bright"
+        topBar:title_textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="左边图片的ActionBar(设置属性)"/>
+
+    <com.aaron.aarontools.views.MyActionBar
+        xmlns:topBar="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        topBar:bar_backgroundColor="@android:color/holo_blue_light"
+        topBar:left_image="@drawable/back_btn"
+        topBar:right_text="右"
+        topBar:right_textColor="@android:color/holo_red_light"
+        topBar:right_textSize="14sp"
+        topBar:title_text="@string/escape_string"
+        topBar:title_textColor="@android:color/holo_red_light"
+        topBar:title_textSize="18sp"/>
+
+</LinearLayout>

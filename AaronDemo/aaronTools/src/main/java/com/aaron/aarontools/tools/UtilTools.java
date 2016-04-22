@@ -47,7 +47,7 @@ public class UtilTools {
     /**
      * 根据手机分辨率转换字体大小
      */
-    public static int getFontSize (Context context, int textSize) {
+    public static int getFontSize (Context context, float textSize) {
         DisplayMetrics dm = new DisplayMetrics ();
         WindowManager windowManager = (WindowManager) context.getSystemService (Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay ().getMetrics (dm);

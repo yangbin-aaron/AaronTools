@@ -15,7 +15,7 @@ import com.aaron.aarondemo.activitys.systems.CheckSystemToolsActivity;
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private MainActivity activity;
-    private Button escape_string_btn,check_nettool_btn,check_systemtool_btn,float_windons1_btn,float_windons2_btn;
+    private Button escape_string_btn, check_nettool_btn, check_systemtool_btn, float_windons1_btn, float_windons2_btn, my_actionbar_btn;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         float_windons2_btn.setOnClickListener (this);
         escape_string_btn = (Button) findViewById (R.id.escape_string_btn);
         escape_string_btn.setOnClickListener (this);
+        my_actionbar_btn = (Button) findViewById (R.id.my_actionbar_btn);
+        my_actionbar_btn.setOnClickListener (this);
     }
 
     @Override
@@ -51,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 break;
             case R.id.float_windons2_btn:// 悬浮窗口,更加详细的（后来加的）
                 startActivity (new Intent (activity, FloatWindons2Activity.class));
+                break;
+            case R.id.my_actionbar_btn:
+                startActivity (new Intent (activity, MyActionBarActivity.class));
                 break;
         }
     }

@@ -18,6 +18,8 @@ import com.aaron.aarontools.AaronConstants;
 import com.aaron.aarontools.tools.SystemTools;
 import com.aaron.aarontools.tools.UtilTools;
 
+import java.util.HashMap;
+
 /**
  * Created by toughegg on 16/4/20.
  */
@@ -26,6 +28,7 @@ public class CheckSystemToolsActivity extends Activity implements View.OnClickLi
 
     private final static int IS_BACKGROUND_APP = 0x01;
     private final static int IS_SLEEPING = 0x02;
+    private final static int THREAD_HANDLER = 0x03;
     private Handler mHandler = new Handler () {
         @Override
         public void handleMessage (Message msg) {
@@ -44,6 +47,22 @@ public class CheckSystemToolsActivity extends Activity implements View.OnClickLi
                     break;
                 case IS_SLEEPING:
                     Log.e ("aaron", SystemTools.isSleeping (CheckSystemToolsActivity.this) ? "当前处于睡眠状态" : "当前属于活跃状态");
+                    break;
+                case THREAD_HANDLER:
+                    // 系统时间（1）
+                    TextView system_time1_tv = (TextView) findViewById (R.id.system_time1_tv);
+                    String system_time = SystemTools.getDataOfFormat ("yyyy-MM-dd HH:mm:ss");
+                    system_time1_tv.setText (system_time);
+                    // 系统时间（2）
+                    HashMap<String, Integer> time_hash = SystemTools.getTimeOfDefault ();
+                    TextView system_time2_tv = (TextView) findViewById (R.id.system_time2_tv);
+                    system_time2_tv.setText (time_hash.get (AaronConstants.YEAR)
+                            + "/" + time_hash.get (AaronConstants.MONTH)
+                            + "/" + time_hash.get (AaronConstants.DAY)
+                            + " " + time_hash.get (AaronConstants.HOUR)
+                            + ":" + time_hash.get (AaronConstants.MINUTE)
+                            + ":" + time_hash.get (AaronConstants.SECOND)
+                            + " 星期" + (time_hash.get (AaronConstants.WEEK) == 0 ? 7 : time_hash.get (AaronConstants.WEEK)));
                     break;
             }
         }
@@ -87,10 +106,22 @@ public class CheckSystemToolsActivity extends Activity implements View.OnClickLi
         TextView ip_tv = (TextView) findViewById (R.id.ip_tv);
         String ipStr = SystemTools.getPhoneIp ();
         ip_tv.setText (ipStr == null ? "null" : ipStr);
-
+        // 内存
         TextView dum_tv = (TextView) findViewById (R.id.dum_tv);
         int dum = SystemTools.getDeviceUsableMemory (this);
         dum_tv.setText (dum + "");
+    }
+
+    @Override
+    protected void onResume () {
+        super.onResume ();
+        createThread ();
+    }
+
+    @Override
+    protected void onPause () {
+        super.onPause ();
+        thread_swith = false;
     }
 
     @Override
@@ -143,7 +174,7 @@ public class CheckSystemToolsActivity extends Activity implements View.OnClickLi
                 PendingIntent pendingIntent = PendingIntent.getActivity (this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
                 UtilTools.createNotification (CheckSystemToolsActivity.this, "测试标题", "测试提示", 0, R.drawable.icon_pan102, 1, pendingIntent);
                 break;
-            case R.id.alarm_btn:// 闹铃
+            case R.id.alarm_btn:// 闹铃   http://www.cnblogs.com/linjiqin/archive/2011/02/26/1966065.html
                 Button alarm_btn = (Button) findViewById (R.id.alarm_btn);
                 Intent intentLRS = new Intent (this, LongRunningService.class);
                 if (alarmIsStart) {
@@ -197,6 +228,30 @@ public class CheckSystemToolsActivity extends Activity implements View.OnClickLi
                     }
                 }
                 index = 0;
+            }
+        }.start ();
+    }
+
+
+    private boolean thread_swith = false;
+
+    /**
+     * 定时器
+     */
+    private void createThread () {
+        thread_swith = true;
+        new Thread () {
+            @Override
+            public void run () {
+                super.run ();
+                while (thread_swith) {
+                    mHandler.obtainMessage (THREAD_HANDLER).sendToTarget ();
+                    try {
+                        Thread.sleep (1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace ();
+                    }
+                }
             }
         }.start ();
     }

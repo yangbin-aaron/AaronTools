@@ -167,9 +167,10 @@
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:text="手机IP"/>
+                            android:text="系统时间(1)"/>
 
                         <TextView
+                            android:id="@+id/system_time1_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -186,33 +187,14 @@
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:text="手机IP"/>
+                            android:text="系统时间(2)"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="1dp"
-                        android:background="@android:color/white"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:text="手机IP"/>
-
-                        <TextView
+                            android:id="@+id/system_time2_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
-
 
                 <!--加载-->
                 <LinearLayout
