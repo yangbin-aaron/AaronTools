@@ -23,7 +23,7 @@ public class MyActionBarActivity extends Activity implements MyActionBar.OnActio
 //        bar.setBarTitleText ("my_actionbar");
         bar.setBarLeftImage (R.drawable.back_btn);
         bar.setBarRightText ("右");
-        bar.setBarRightImage (R.drawable.blue_btn_color);
+        bar.setBarTextBackground (R.drawable.blue_btn_color);
         bar.setOnActionBarClickListener (this);
     }
 

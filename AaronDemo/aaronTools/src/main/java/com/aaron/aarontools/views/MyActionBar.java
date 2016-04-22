@@ -148,6 +148,15 @@ public class MyActionBar extends RelativeLayout {
     }
 
     /**
+     * 设置字体背景颜色
+     * @param resId
+     */
+    public void setBarTextBackground (int resId) {
+        mLeftTextView.setBackgroundResource (resId);
+        mRightTextView.setBackgroundResource (resId);
+    }
+
+    /**
      * 设置标题
      *
      * @param titleStr
